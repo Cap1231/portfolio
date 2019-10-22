@@ -33,6 +33,7 @@ ul {
   align-items: center;
   justify-content: center;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .name h1 {
@@ -41,10 +42,9 @@ ul {
 
 .eye {
   position: absolute;
-  /* top: 50%; */
-  left: 46%;
-  /* transform: translate(-50%, -50%); */
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transform: rotateY(180deg);
   font-size: 3rem;
 }
@@ -78,18 +78,18 @@ ul {
   }
 }
 
-.K-flex {
-  display: flex;
-}
-
 .wrap-work {
   position: relative;
+}
+
+.K-flex {
+  display: flex;
+  overflow-x: hidden;
 }
 
 .slider {
   min-width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }
 
 .workstyle,

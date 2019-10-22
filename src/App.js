@@ -159,17 +159,18 @@ const App = () => {
       });
     }
   });
-  const a = useSpring({
+  const styleName = useSpring({
     from: { opacity: 0, marginRight: "-100%" },
     to: { opacity: 1, marginRight: "0%" },
-    delay: 10500
+    delay: 10500,
+    config: { duration: 1500 }
   });
   return (
     <React.Fragment>
       <div className='name'>
         <animated.div className='border-name' style={props}></animated.div>
         <Eyes />
-        <animated.h1 style={a}>Tsubasa Yamaguchi</animated.h1>
+        <animated.h1 style={styleName}>Tsubasa Yamaguchi</animated.h1>
         <div className='occupation'>Web developer</div>
       </div>
       <Work />
