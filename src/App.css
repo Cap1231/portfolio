@@ -1,22 +1,417 @@
-.App {
+:root {
+  --orange: #f7a411;
+  --backgroud: #202020;
+  --blue: #2c82ac;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.4;
+  background: var(--backgroud);
+  color: aliceblue;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.name {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.name h1 {
+  font-size: 4rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.eye {
+  position: absolute;
+  /* top: 50%; */
+  left: 46%;
+  /* transform: translate(-50%, -50%); */
+  display: inline-block;
+  transform: rotateY(180deg);
+  font-size: 3rem;
+}
+
+.occupation {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  padding-left: 70px;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    var(--orange) 0%,
+    var(--orange) 70%,
+    var(--backgroud) 70%,
+    var(--backgroud) 100%
+  );
+  animation: moveleft 5s ease 11s 1 forwards;
+}
+
+.border-name {
+  position: absolute;
+}
+
+@keyframes moveleft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.K-flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.wrap-work {
+  position: relative;
+}
+
+.slider {
+  min-width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.workstyle,
+.skill,
+.contact {
+  width: 70%;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  line-height: 2.5rem;
+}
+
+/* page案内矢印 */
+button.btn-left,
+button.btn-right {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  top: 0;
+  width: 15%;
+  height: 100%;
+}
+
+.btn-left {
+  left: 0;
+}
+.btn-right {
+  right: 0;
+}
+
+.fa-angle-left,
+.fa-angle-right {
+  color: var(--orange);
+}
+
+.fa-angle-left {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.fa-angle-right {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+
+/* ページ番号表示 */
+.page-index {
+  text-align: center;
+  line-height: 50px;
+}
+
+.fa-circle {
+  color: var(--orange);
+  padding-right: 5px;
+}
+
+/* WORKSTYLE */
+.workstyle {
+  height: 100vh;
+}
+
+.work-contents {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 240px);
+  justify-content: space-evenly;
+  grid-row-gap: 8px;
+}
+
+.work-content {
+  background: #fff;
+  color: black;
+  border: 1px solid #ededed;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.work-content h3 {
+  font: bold 16px;
+  border-bottom: 2px solid #ededed;
+  text-align: center;
+}
+
+.work-content ul {
+  padding-left: 5px;
+}
+
+.work-condition {
+  margin-top: 25px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.achievement {
+  position: relative;
+  height: 200px;
+  font-size: 14px;
+  margin-top: 80px;
+}
+
+.achievement-pie-chart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-image: conic-gradient(
+    #e04418 0,
+    #e04418 80%,
+    #89c34a 80%,
+    #89c34a 95%,
+    #eacf36 95%,
+    #eacf36 100%
+  );
+}
+
+.ahievement-develop {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+}
+
+.frontend {
+  position: absolute;
+  top: 130px;
+  left: 40%;
+}
+
+.backend {
+  position: absolute;
+  top: 40px;
+  right: 65%;
+}
+
+.library {
+  position: absolute;
+  top: -18px;
+  right: 55%;
+}
+
+/* SKILL */
+.skill {
+  height: 100vh;
+}
+
+.grid-skill {
+  margin-top: 150px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 120px);
+  justify-content: space-between;
+  grid-row-gap: 30px;
+}
+
+.circle-container {
+  text-align: center;
+  transition: 0.8s;
+}
+
+.circle-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 5);
+}
+
+.circle {
+  position: relative;
+}
+
+.circle svg circle {
+  fill: none;
+  stroke: lightcyan;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+}
+
+.circle svg circle:nth-child(1) {
+  stroke: transparent;
+}
+
+.circle svg circle:nth-child(2) {
+  stroke-dasharray: 314;
+  /* stroke-dashoffset: calc(314 - (314 * 80) / 100); */
+  stroke: #00ff43;
+}
+
+.circle-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  transition: 0.8s;
+}
+
+.circle-container:hover .circle-number {
+  font-size: 40px;
+}
+
+/* CONTACT */
+.contact {
+  position: relative;
+  height: 100vh;
+}
+
+.contact-info {
+  width: 220px;
+  margin: 0 auto;
+  line-height: 2.5rem;
+}
+
+.person-info {
+  text-align: center;
+  padding: 35px 0;
+  line-height: 3.5rem;
+}
+.profile-pic {
+  position: relative;
+  background: #e9e8e8;
+  width: 155px; /*幅*/
+  height: 155px; /*高さ*/
+  border-radius: 50%; /*角丸*/
+  border: 2px solid var(--orange);
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.profile-pic img {
+  position: absolute;
+  bottom: -20px;
+  right: 0px;
+  background: transparent;
+  height: 200px;
+}
+
+@media (max-width: 500px) {
+  .name h1 {
+    font-size: 2rem;
+  }
+  .work-contents {
+    margin-top: 10px;
+  }
+
+  .grid-skill {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 375px) {
+  .grid-skill {
+    margin-top: 0;
+  }
+  .achievement {
+    margin-top: 30px;
+  }
+}
+
+/* Galaxy S5 */
+@media (max-width: 360px) {
+  .grid-skill {
+    grid-row-gap: 15px;
+  }
+  .achievement {
+    height: 150px;
+    margin-top: 40px;
+  }
+  .achievement-pie-chart {
+    width: 150px;
+    height: 150px;
+  }
+  .frontend {
+    top: 90px;
+  }
+  .backend {
+    top: 27px;
+  }
+}
+
+/* Iphone 5/SE */
+@media (max-width: 330px) {
+  .page-index {
+    line-height: 24px;
+  }
+  .grid-skill {
+    grid-row-gap: 3px;
+  }
+
+  button.btn-left,
+  button.btn-right {
+    width: 10%;
+  }
+  .workstyle,
+  .skill,
+  .contact {
+    width: 80%;
+  }
+
+  .achievement {
+    height: 120px;
+    margin-top: 30px;
+  }
+  .achievement-pie-chart {
+    width: 120px;
+    height: 120px;
+  }
+  .frontend {
+    top: 80px;
+  }
+  .backend {
+    top: 20px;
+  }
 }
