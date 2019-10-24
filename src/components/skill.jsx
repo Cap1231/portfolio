@@ -1,6 +1,4 @@
 import React from "react";
-// import Language from "./language";
-// import Framework from "./framework";
 import Circle from "./circle";
 import Page from "./page";
 
