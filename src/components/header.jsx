@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useTransition, animated, config } from "react-spring";
+import { useTransition, animated } from "react-spring";
 
 const Header = () => {
   const [isToggleOn, setToggle] = useState(true);
@@ -52,6 +52,21 @@ const Header = () => {
             </animated.div>
           )
         )}
+        {/* {isToggleOn ? (
+          <div>
+            <svg width='35px' height='35px'>
+              <g stroke='#f77911'>
+                <line x1='0' y1='7.5' x2='35' y2='7.5' strokeWidth='5' />
+                <line x1='0' y1='17.5' x2='35' y2='17.5' strokeWidth='5' />
+                <line x1='0' y1='27.5' x2='35' y2='27.5' strokeWidth='5' />
+              </g>
+            </svg>
+          </div>
+        ) : (
+          <div>
+            <i className='fas fa-times fa-2x'></i>
+          </div>
+        )} */}
       </div>
 
       <ul className='nav-links' ref={navRef} style={navStyle}>

@@ -134,6 +134,8 @@ a:hover::after {
 
 .wrap-work {
   position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .K-flex {
@@ -143,7 +145,8 @@ a:hover::after {
 
 .slider {
   min-width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
+  /* height: 100%; */
 }
 
 .workstyle,
