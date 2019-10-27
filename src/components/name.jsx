@@ -26,7 +26,7 @@ const Eyes = () => {
 };
 
 const Name = () => {
-  const orange = "#F7A411";
+  const orange = "#f77911";
   const props = useSpring({
     from: {
       left: "0%",
