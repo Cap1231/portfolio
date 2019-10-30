@@ -1,6 +1,6 @@
 import React from "react";
-import Circle from "./circle";
-import Page from "./page";
+import Circle from "./Circle";
+import Page from "./Page";
 
 const skill = () => {
   return (

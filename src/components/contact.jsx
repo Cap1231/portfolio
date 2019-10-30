@@ -1,7 +1,7 @@
 import React from "react";
-import Page from "./page";
+import Page from "./Page";
 
-export default function contact() {
+const Contact = () => {
   return (
     <div className='contact'>
       <Page pageData={{ currentPage: 3 }} />
@@ -31,4 +31,6 @@ export default function contact() {
       </div>
     </div>
   );
-}
+};
+
+export default Contact;

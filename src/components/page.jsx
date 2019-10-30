@@ -5,33 +5,14 @@ const Page = props => {
 
   const indexPage = () => {
     const curPage = pageData.currentPage;
-    if (curPage === 1) {
-      return (
-        <React.Fragment>
-          <i className='fas fa-circle fa-xs'></i>
-          <i className='far fa-circle fa-xs'></i>
-          <i className='far fa-circle fa-xs'></i>
-        </React.Fragment>
-      );
-    } else if (curPage === 2) {
-      return (
-        <React.Fragment>
-          <i className='far fa-circle fa-xs'></i>
-          <i className='fas fa-circle fa-xs'></i>
-          <i className='far fa-circle fa-xs'></i>
-        </React.Fragment>
-      );
-    } else if (curPage === 3) {
-      return (
-        <React.Fragment>
-          <i className='far fa-circle fa-xs'></i>
-          <i className='far fa-circle fa-xs'></i>
-          <i className='fas fa-circle fa-xs'></i>
-        </React.Fragment>
-      );
-    } else {
-      console.log("ërror...");
-    }
+
+    return (
+      <React.Fragment>
+        <i className={`${curPage === 1 ? "fas" : "far"} fa-circle fa-xs`}></i>
+        <i className={`${curPage === 2 ? "fas" : "far"}  fa-circle fa-xs`}></i>
+        <i className={`${curPage === 3 ? "fas" : "far"}  fa-circle fa-xs`}></i>
+      </React.Fragment>
+    );
   };
 
   return <div className='page-index'>{indexPage()}</div>;

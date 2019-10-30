@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Skill from "./skill";
-import Workstyle from "./workstyle";
-import Contact from "./contact";
+import Skill from "./Skill";
+import Workstyle from "./Workstyle";
+import Contact from "./Contact";
 import MediaQuery from "react-responsive";
 
 const SmartPhoneBtn = props => {

@@ -1,7 +1,14 @@
-import React from "react";
-import Page from "./page";
+import React, { useEffect } from "react";
+import Page from "./Page";
 
-const workstyle = () => {
+const Workstyle = () => {
+  useEffect(() => {
+    console.log("effect");
+    return () => {
+      console.log("cleanup");
+    };
+  });
+
   return (
     <div className='workstyle'>
       <Page pageData={{ currentPage: 1 }} />
@@ -53,4 +60,4 @@ const workstyle = () => {
   );
 };
 
-export default workstyle;
+export default Workstyle;

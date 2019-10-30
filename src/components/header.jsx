@@ -1,14 +1,23 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useTransition, animated } from "react-spring";
+import { Link } from "react-router-dom";
+
+const HamburgerIcon = () => (
+  <svg width='35px' height='35px'>
+    <g stroke='#f77911'>
+      <line x1='0' y1='7.5' x2='35' y2='7.5' strokeWidth='5' />
+      <line x1='0' y1='17.5' x2='35' y2='17.5' strokeWidth='5' />
+      <line x1='0' y1='27.5' x2='35' y2='27.5' strokeWidth='5' />
+    </g>
+  </svg>
+);
 
 const Header = () => {
   const [isToggleOn, setToggle] = useState(true);
   const transitions = useTransition(isToggleOn, null, {
     // from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 1 },
-    // config: config.slow
-    delay: 3000
+    leave: { opacity: 1 }
   });
 
   const nav = {
@@ -22,7 +31,7 @@ const Header = () => {
     }
   };
   const [navStyle, setNav] = useState(nav.close);
-  const navRef = useRef();
+  // const navRef = useRef();
   const handleToggle = () => {
     if (isToggleOn) {
       setNav(nav.open);
@@ -32,19 +41,28 @@ const Header = () => {
     setToggle(!isToggleOn);
   };
 
+  const [hambStyle, setHamb] = useState({ display: "none" });
+
+  window.addEventListener("scroll", () => {
+    const screenHeight = window.innerHeight;
+    const scrollHeight = document.documentElement.scrollTop;
+    if (scrollHeight >= screenHeight) {
+      // グローバルな値で保持したい。redux?
+      setHamb({ display: "block" });
+    }
+  });
+
   return (
     <nav>
-      <div className='hamburger' onClick={handleToggle}>
+      <animated.div
+        className='hamburger'
+        style={hambStyle}
+        onClick={handleToggle}
+      >
         {transitions.map(({ item, key, props }) =>
           isToggleOn ? (
             <animated.div key={key} style={props}>
-              <svg width='35px' height='35px'>
-                <g stroke='#f77911'>
-                  <line x1='0' y1='7.5' x2='35' y2='7.5' strokeWidth='5' />
-                  <line x1='0' y1='17.5' x2='35' y2='17.5' strokeWidth='5' />
-                  <line x1='0' y1='27.5' x2='35' y2='27.5' strokeWidth='5' />
-                </g>
-              </svg>
+              <HamburgerIcon />
             </animated.div>
           ) : (
             <animated.div key={key} style={props}>
@@ -52,29 +70,17 @@ const Header = () => {
             </animated.div>
           )
         )}
-        {/* {isToggleOn ? (
-          <div>
-            <svg width='35px' height='35px'>
-              <g stroke='#f77911'>
-                <line x1='0' y1='7.5' x2='35' y2='7.5' strokeWidth='5' />
-                <line x1='0' y1='17.5' x2='35' y2='17.5' strokeWidth='5' />
-                <line x1='0' y1='27.5' x2='35' y2='27.5' strokeWidth='5' />
-              </g>
-            </svg>
-          </div>
-        ) : (
-          <div>
-            <i className='fas fa-times fa-2x'></i>
-          </div>
-        )} */}
-      </div>
+      </animated.div>
 
-      <ul className='nav-links' ref={navRef} style={navStyle}>
-        <li>
-          <a href='/#'>Roadmap</a>
+      <ul className='nav-links' style={navStyle}>
+        <li onClick={handleToggle}>
+          <Link to='/'>Home</Link>
         </li>
-        <li>
-          <a href='/#'>Work1</a>
+        <li onClick={handleToggle}>
+          <Link to='/#'>Roadmap</Link>
+        </li>
+        <li onClick={handleToggle}>
+          <Link to='/Design1'>Design1</Link>
         </li>
         　
       </ul>

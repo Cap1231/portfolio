@@ -1,18 +1,19 @@
 import React from "react";
 import "./App.css";
-import Name from "./components/name";
-import Work from "./components/work";
-import Header from "./components/header";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Design1 from "./components/Design1";
 
 const App = () => {
   return (
-    <React.Fragment>
+    <Router>
       <Header />
-      <main>
-        <Name />
-        <Work />
-      </main>
-    </React.Fragment>
+      <Switch>
+        <Route path='/' exact component={Home} />
+        <Route path='/design1' component={Design1} />
+      </Switch>
+    </Router>
   );
 };
 
