@@ -12,6 +12,10 @@
     "resize-observer-polyfill": "^1.5.1",
     "use-measure": "^0.2.2"
   },
+  "engines": {
+    "node": "12.4.0",
+    "npm": "6.9.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
