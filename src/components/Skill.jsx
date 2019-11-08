@@ -2,7 +2,7 @@ import React from "react";
 import Circle from "./Circle";
 import Page from "./Page";
 
-const skill = () => {
+const Skill = () => {
   return (
     <div className='skill'>
       <Page pageData={{ currentPage: 2 }} />
@@ -23,4 +23,4 @@ const skill = () => {
   );
 };
 
-export default skill;
+export default Skill;

@@ -473,3 +473,27 @@ button.btn-right {
     top: 20px;
   }
 }
+
+.f-group {
+  /* width: 100%; */
+  height: 40px;
+  text-align: center;
+}
+.f-control {
+  width: 300px;
+  height: 80%;
+  margin: 0 auto;
+}
+.btn {
+  background: #e88b01;
+  border-radius: 4px;
+}
+
+.hello-user {
+  text-align: center;
+}
+
+.error {
+  text-align: center;
+  color: red;
+}

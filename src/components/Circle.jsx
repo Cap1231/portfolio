@@ -1,6 +1,6 @@
 import React from "react";
 
-const circle = props => {
+const Circle = props => {
   const { lang, level, exp } = props;
   const circumference = 314; /* 円周 */
   const skillNum = circumference - (circumference * level) / 100;
@@ -25,4 +25,4 @@ const circle = props => {
   );
 };
 
-export default circle;
+export default Circle;

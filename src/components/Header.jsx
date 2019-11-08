@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useTransition, animated } from "react-spring";
 import { Link } from "react-router-dom";
+import { NavContext } from "../App";
 
 const HamburgerIcon = () => (
   <svg width='35px' height='35px'>
@@ -13,6 +14,9 @@ const HamburgerIcon = () => (
 );
 
 const Header = () => {
+  const navContext = useContext(NavContext);
+  console.log(navContext.val);
+  // console.log({()=>navContext.dispatch("open")});
   const [isToggleOn, setToggle] = useState(true);
   const transitions = useTransition(isToggleOn, null, {
     // from: { opacity: 0 },
@@ -31,6 +35,7 @@ const Header = () => {
     }
   };
   const [navStyle, setNav] = useState(nav.close);
+
   // const navRef = useRef();
   const handleToggle = () => {
     if (isToggleOn) {
@@ -41,16 +46,19 @@ const Header = () => {
     setToggle(!isToggleOn);
   };
 
-  const [hambStyle, setHamb] = useState({ display: "none" });
-
   window.addEventListener("scroll", () => {
     const screenHeight = window.innerHeight;
     const scrollHeight = document.documentElement.scrollTop;
     if (scrollHeight >= screenHeight) {
       // グローバルな値で保持したい。redux?
       setHamb({ display: "block" });
+      navContext.dispatch("open");
     }
   });
+
+  const initHamb = navContext.val ? { display: "block" } : { display: "none" };
+
+  const [hambStyle, setHamb] = useState(initHamb);
 
   return (
     <nav>
